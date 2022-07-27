@@ -144,8 +144,6 @@ fun game(rows: Int, cols: Int, mines: Int) {
 
     while (true) {
         playingField.forEach { println(it.joinToString("")) }
-        // todo remove printing the hiddenField
-        hiddenField.forEach { println(it.joinToString("")) }
         print("Set/unset mine marks or claim a cell as free: > ")
         val inp = readLine()!!
         y = inp.split(" ")[0].toInt()
@@ -237,15 +235,14 @@ fun game(rows: Int, cols: Int, mines: Int) {
                 break
             }
         }
-        // todo remove
-        println("k = $win1")
-        println("l = $win2")
-
     }
 }
 
 fun main() {
     println("Welcome to the game Minesweeper! Be careful and good luck! Have a nice game!")
+    println("Firstly you need to give coordinates (x, y), and then the command. ")
+    println("If you want to mark cell as mine type \"mine\" and \"free\" if you want to open the cell.")
+    println("Example: \"3 5 free\" or \"1 1 mine\".")
     println()
     print("How many rows? > ")
     val rows = readLine()!!.toInt()
@@ -261,4 +258,3 @@ fun main() {
     }
     game(rows, cols, mines)
 }
-
